@@ -1,0 +1,19 @@
+{
+    "name": "simonking/xkphp2",
+    "type": "project",
+    "require": {
+        "php": "^8.4",
+        "amphp/amp": "^3.1",
+        "amphp/http-client": "^5.3",
+        "amphp/http-server": "^3.4",
+        "amphp/byte-stream": "^2.1",
+        "amphp/log": "^2.0",
+        "amphp/http-server-router": "^2.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Simonking\\Xkphp2\\": "src/"
+        }
+    }
+}

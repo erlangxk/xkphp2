@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1337:1337"
+    volumes:
+      # Mount source code for development (comment out for production)
+      - ./:/var/www/app
+      # Don't overwrite vendor directory with local files
+      - /var/www/app/vendor
+    environment:
+      # Development environment
+      PHP_IDE_CONFIG: "serverName=xkphp2"
+    # Ensures container keeps running
+    tty: true
+    restart: unless-stopped
+
+# Add additional services as needed:
+#  database:
+#    image: mysql:8
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_ROOT_PASSWORD: secret
+#      MYSQL_DATABASE: amphp_app
+#      MYSQL_USER: app
+#      MYSQL_PASSWORD: password
