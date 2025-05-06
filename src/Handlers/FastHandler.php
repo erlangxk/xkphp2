@@ -21,9 +21,10 @@ class FastHandler implements RequestHandler
     
     public function handleRequest(Request $request): Response
     {
+        
         try {
             // Get the target URL from query parameters, with a fallback default
-            $targetUrl = $request->getQueryParameter('url') ?? 'https://jsonplaceholder.typicode.com/posts/1';
+            $targetUrl = "http://mockserver:3000/users";
             
             // Create a new HTTP request to the target URL
             $clientRequest = new ClientRequest($targetUrl);

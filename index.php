@@ -21,7 +21,7 @@ $logger->pushHandler($logHandler);
 
 $errorHandler = new DefaultErrorHandler();
 
-$server = SocketHttpServer::createForDirectAccess($logger);
+$server = SocketHttpServer::createForDirectAccess($logger, connectionLimitPerIp:512);
 $router = new Router($server, $logger, $errorHandler);
 
 // Configure routes from the separate routes file

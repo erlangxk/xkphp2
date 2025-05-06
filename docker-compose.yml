@@ -16,14 +16,17 @@ services:
     # Ensures container keeps running
     tty: true
     restart: unless-stopped
+    depends_on:
+      - mockserver
+    networks:
+      - app-network
 
-# Add additional services as needed:
-#  database:
-#    image: mysql:8
-#    ports:
-#      - "3306:3306"
-#    environment:
-#      MYSQL_ROOT_PASSWORD: secret
-#      MYSQL_DATABASE: amphp_app
-#      MYSQL_USER: app
-#      MYSQL_PASSWORD: password
+  mockserver:
+    build:
+      context: https://github.com/erlangxk/mockAPI.git#main
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

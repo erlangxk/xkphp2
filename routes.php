@@ -18,10 +18,5 @@ function configureRoutes(Router $router): void
     
     // Define all application routes here
     $router->addRoute('GET', '/hello', new HelloWorldHandler());
-    $router->addRoute('GET', '/fast', new FastHandler($httpClient));
-    
-    // You can add more routes here
-    // $router->addRoute('GET', '/', new HomeHandler());
-    // $router->addRoute('GET', '/api/users', new UserListHandler($httpClient));
-    // $router->addRoute('POST', '/api/users', new CreateUserHandler($httpClient));
+    $router->addRoute('GET', '/api/users', new FastHandler($httpClient));
 }
