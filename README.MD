@@ -116,6 +116,17 @@ Then add the route in routes.php:
 $router->addRoute('GET', '/new-feature', new NewFeatureHandler());
 ```
 
+## Performance testing
+
+install hey, https://github.com/rakyll/hey
+
+run the following command to test the performance of the server:
+
+```bash
+hey -n 1000 -c 125 http://localhost:1337/api/users
+```
+
+
 ## License
 
 MIT
