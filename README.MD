@@ -115,6 +115,33 @@ Then add the route in routes.php:
 ```php
 $router->addRoute('GET', '/new-feature', new NewFeatureHandler());
 ```
+## Mock Server Integration
+
+This project integrates with a mock API server from [https://github.com/erlangxk/mockAPI](https://github.com/erlangxk/mockAPI).
+
+### Features of the Mock Server
+- Provides simulated API endpoints for development and testing
+- Built using Mockoon for easy API mocking
+- Deployed automatically as part of the Docker Compose setup
+
+### How It Works
+The mock server is pulled directly from GitHub during container build time. When you run the Docker Compose setup, the mock server runs as a separate container and is available to the main PHP application via the internal Docker network.
+
+### Accessing Mock Endpoints
+From your PHP application, you can access the mock server endpoints as below:
+
+```php
+ $targetUrl = "http://mockserver:3000/users";            
+ $clientRequest = new ClientRequest($targetUrl);
+```
+
+### Updating the Mock Server
+When new changes are pushed to the mockAPI repository, you can update your local instance by rebuilding the container:
+
+```bash
+docker-compose build --no-cache mockserver
+docker-compose up -d
+```
 
 ## Performance testing
 
