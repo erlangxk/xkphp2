@@ -154,6 +154,10 @@ hey -n 1000 -c 125 http://localhost:1337/api/users
 ```
 
 
+## Performance result
+
+![Performance result](image.jpeg)
+
 ## License
 
 MIT
